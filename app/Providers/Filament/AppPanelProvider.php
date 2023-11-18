@@ -17,6 +17,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Stephenjude\FilamentBlog\BlogPlugin;
 
 class AppPanelProvider extends PanelProvider
 {
@@ -27,6 +28,7 @@ class AppPanelProvider extends PanelProvider
             ->id('app')
             ->path('app')
             ->login()
+            ->plugin(BlogPlugin::make())
             ->colors([
                 'primary' => Color::Amber,
             ])
