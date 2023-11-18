@@ -34,7 +34,6 @@ class AppPanelProvider extends PanelProvider
             ->login()
             ->plugins([
                 BlogPlugin::make(),
-                FilamentFabricatorPlugin::make(),
                 FilamentChainedTranslationManagerPlugin::make(),
                 OverlookPlugin::make()
                     ->sort(2)
