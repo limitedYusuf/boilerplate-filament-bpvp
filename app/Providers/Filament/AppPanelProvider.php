@@ -20,6 +20,7 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use BezhanSalleh\FilamentLanguageSwitch\FilamentLanguageSwitchPlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 use Statikbe\FilamentTranslationManager\FilamentChainedTranslationManagerPlugin;
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
@@ -48,6 +49,7 @@ class AppPanelProvider extends PanelProvider
                     ]),
                 FilamentSpatieRolesPermissionsPlugin::make(),
                 FilamentSpatieLaravelHealthPlugin::make(),
+                FilamentLanguageSwitchPlugin::make(),
             ])
             ->colors([
                 'primary' => Color::Amber,
