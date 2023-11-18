@@ -11,12 +11,14 @@ use Awcodes\Overlook\OverlookPlugin;
 use Stephenjude\FilamentBlog\BlogPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Awcodes\Overlook\Widgets\OverlookWidget;
+use lockscreen\FilamentLockscreen\Lockscreen;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
+use lockscreen\FilamentLockscreen\Http\Middleware\Locker;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -50,6 +52,7 @@ class AppPanelProvider extends PanelProvider
                 FilamentSpatieRolesPermissionsPlugin::make(),
                 FilamentSpatieLaravelHealthPlugin::make(),
                 FilamentLanguageSwitchPlugin::make(),
+                new Lockscreen(),
             ])
             ->colors([
                 'primary' => Color::Amber,
@@ -81,6 +84,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                Locker::class,
             ])
             ->viteTheme('resources/css/filament/app/theme.css');
     }
