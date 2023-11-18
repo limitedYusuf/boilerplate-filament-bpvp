@@ -7,8 +7,10 @@ use Filament\Panel;
 use Filament\Widgets;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Awcodes\Overlook\OverlookPlugin;
 use Stephenjude\FilamentBlog\BlogPlugin;
 use Filament\Http\Middleware\Authenticate;
+use Awcodes\Overlook\Widgets\OverlookWidget;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Routing\Middleware\SubstituteBindings;
@@ -34,6 +36,16 @@ class AppPanelProvider extends PanelProvider
                 BlogPlugin::make(),
                 FilamentFabricatorPlugin::make(),
                 FilamentChainedTranslationManagerPlugin::make(),
+                OverlookPlugin::make()
+                    ->sort(2)
+                    ->columns([
+                        'default' => 1,
+                        'sm' => 2,
+                        'md' => 3,
+                        'lg' => 4,
+                        'xl' => 5,
+                        '2xl' => null,
+                    ]),
             ])
             ->colors([
                 'primary' => Color::Amber,
@@ -47,6 +59,7 @@ class AppPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
+                OverlookWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -61,6 +74,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->viteTheme('resources/css/filament/app/theme.css');
     }
 }
