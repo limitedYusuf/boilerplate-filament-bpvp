@@ -63,6 +63,9 @@ class AppPanelProvider extends PanelProvider
                 Widgets\FilamentInfoWidget::class,
                 OverlookWidget::class,
             ])
+            ->resources([
+                config('filament-logger.activity_resource')
+            ])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
