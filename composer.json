@@ -16,6 +16,7 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "shuvroroy/filament-spatie-laravel-health": "^2.0",
         "statikbe/laravel-chained-translator": "^2.2",
         "statikbe/laravel-filament-chained-translation-manager": "^3.1",
         "stephenjude/filament-blog": "^2.0"
