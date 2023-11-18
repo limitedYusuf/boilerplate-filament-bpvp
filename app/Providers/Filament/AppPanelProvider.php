@@ -16,12 +16,12 @@ use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Z3d0X\FilamentFabricator\FilamentFabricatorPlugin;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Statikbe\FilamentTranslationManager\FilamentChainedTranslationManagerPlugin;
+use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
 
 class AppPanelProvider extends PanelProvider
 {
@@ -45,6 +45,7 @@ class AppPanelProvider extends PanelProvider
                         'xl' => 5,
                         '2xl' => null,
                     ]),
+                FilamentSpatieRolesPermissionsPlugin::make()
             ])
             ->colors([
                 'primary' => Color::Amber,
